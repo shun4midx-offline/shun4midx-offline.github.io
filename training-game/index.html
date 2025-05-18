@@ -1,0 +1,65 @@
+<!--
+/********************************************
+* Copyright (c) 2025 Shun/翔海 (@shun4midx) *
+* Project: School Project of Training Game *
+* File Type: HTML file for training game   *
+* File: index.html                         *
+********************************************/
+-->
+
+<!DOCTYPE html>
+<html lang="utf-8">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>清福員工訓練遊戲</title>
+  <link rel="stylesheet" href="main-template.css?v=2"/>
+  <link rel="stylesheet" href="button-template.css"/>
+  <link rel="stylesheet" href="home-template.css"/>
+</head>
+
+<body>
+  <div class="HomeBodyWrap">
+    <div class="HeaderButtons">
+      <a href="" class="HomeButton">🏠</a>
+      <div class="MenuToggle" onclick="toggleMenu()">
+        <span id="globe-text">🌐</span>
+      </div>
+    </div>
+
+    <!-- Language selection container -->
+    <div class="LanguageContainer">
+      <div class="language-zh-tw" onclick="setLanguage('zh-tw')">正體中文</div>
+      <div class="language-abc" onclick="setLanguage('en')">English</div>
+      <div class="language-abc" onclick="setLanguage('vn')">Tiếng Việt</div>
+      <div class="language-abc" onclick="setLanguage('id')">Bahasa Indonesia</div>
+    </div>
+
+    <div class="HomeBody">
+      <div class="HomeTitleWrap">
+        <div class="HomeTitle">
+          <h1 id="homescreen-text"></h1>
+        </div>
+      </div>
+
+      <div class="Button">
+        <a href="game/?" class="ButtonLink"><span data-key="start">START!</span></a>
+      </div>
+
+      <div class="ButtonSubtitle">
+        <h2 data-key="startDescription">Press to start the game!</h2>
+      </div>
+    
+    </div>
+  </div>
+  <!-- ======== SCRIPTS ======== -->
+  <!-- Typewriter animation -->
+  <script src="home-typewriter.js"></script>
+  <script src="main-scripts/read-write-sheet.js"></script>
+  <script src="main-scripts/language-selection.js"></script>
+  <script src="main-scripts/disable-hover.js"></script>
+  <script type="module" src="main-scripts/naive-translation.js"></script>
+</body>
+
+</html>

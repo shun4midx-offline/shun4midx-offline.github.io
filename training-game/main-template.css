@@ -1,0 +1,218 @@
+/********************************************
+* Copyright (c) 2025 Shun/翔海 (@shun4midx) *
+* Project: School Project of Training Game *
+* File Type: CSS file for website          *
+* File: main-template.css                  *
+********************************************/
+
+/* Main settings */
+* {
+  margin: 0 3pt;
+  padding: 3pt;
+  box-sizing: border-box;
+  font-family: var(--default-font);
+  font-weight: bold;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+/* Forcefully prevent hover styling on devices that don't hover */
+.no-hover .button:hover {
+  background: inherit !important;
+  color: inherit !important;
+  cursor: default !important;
+}
+
+/* Variables */
+:root {
+  --home-cursor: rgb(0, 0, 255);
+  --default-font: 'Optima';
+  --bg-color: rgb(177, 195, 239);
+  --text-color: rgb(0, 0, 0);
+  --button-text: rgb(255, 255, 255);
+  --button-hover-text: rgb(192, 243, 253);
+  --button-bg: rgb(121, 123, 215);
+  --button-clicked: rgb(56, 20, 163); 
+  --header-clicked: rgb(119, 241, 243);
+  --globe-bg: rgb(66, 68, 203);
+  --globe-hover-bg: rgb(25, 27, 143);
+  --language-container-bg: rgb(64, 66, 165);
+  --language-hover-bg: rgb(112, 113, 209);
+  --language-hover-text: rgb(192, 243, 253);
+  --question-border: rgb(70, 33, 158);
+  --question-img-shadow: rgba(20, 3, 87, 0.283);
+  --answer-border: rgb(79, 38, 175);
+  --answer-bg: rgb(226, 241, 244);
+  --hover-answer-bg: rgb(56, 20, 163); 
+  --hover-answer-text: rgb(192, 243, 253);
+  --correct-bg: "#d4edda";
+  --correct-color: "#155724";
+  --correct-border: "2px solid #c3e6cb";
+  --wrong-bg: "#f8d7da";
+  --wrong-color: "#721c24";
+  --wrong-border: "2px solid #f5c6cb";
+  --scrollbar-track: rgb(192, 243, 253);
+  --scrollbar: rgb(66, 68, 203);
+  --scrollbar-hover: rgb(56, 20, 163);
+}
+
+/* HTML and Body */
+html {
+  color: var(--text-color);
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background-color: var(--header-bg);
+}
+
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  flex-direction: column;
+  margin: 0;
+  height: max-height;
+}
+
+/* Top row */
+.HeaderButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for home button */
+.HomeButton {
+  position: fixed !important;
+  margin: 0;
+  padding: 0;
+  font-size: 3.8vh;
+  top: 15px !important;
+  right: calc(15px + 5.75vh) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3000;
+  width: 5vh;
+  height: 5vh;
+  color: var(--header-text);
+  overflow: hidden;
+  background-color: var(--globe-bg);
+  border-radius: 10px;
+  transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.HomeButton:visited {
+  background-color: var(--globe-bg);
+}
+
+.HomeButton.clicked {
+  background-color: var(--globe-hover-bg);
+}
+
+.HomeButton span {
+  margin: 0;   /* Remove any margin for the text */
+  padding: 0;  /* Remove padding */
+  font-size: 1.0em;  /* Set size for the icon */
+  color: var(--header-text);  /* Set the text color */
+}
+
+/* Globe menu button */
+.MenuToggle {
+  position: fixed !important;
+  margin: 0;
+  padding: 0;
+  font-size: 3.8vh;
+  top: 15px !important;
+  right: 15px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  z-index: 3000;
+  width: 5vh;
+  height: 5vh;
+  color: var(--header-text);
+  overflow: hidden;
+  background-color: var(--globe-bg);
+  border-radius: 10px;
+  transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.MenuToggle:visited {
+  background-color: var(--globe-bg);
+}
+
+.MenuToggle.clicked {
+  background-color: var(--globe-hover-bg);
+}
+
+.MenuToggle span {
+  margin: 0;   /* Remove any margin for the text */
+  padding: 0;  /* Remove padding */
+  font-size: 1.0em;  /* Set size for the icon */
+  color: var(--header-text);  /* Set the text color */
+}
+
+/* Language Container */
+.LanguageContainer {
+  position: fixed !important;
+  top: calc(15px + 5.5vh) !important; /* Place it below the globe button */
+  right: 15px !important;
+  background-color: var(--language-container-bg);
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2500; /* Lower than the globe button */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Make the container visible when it's active */
+.LanguageContainer.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styling for each language option */
+.language-zh-tw {
+  font-family: var(--default-font);
+  color: white;
+  font-size: 2vh;
+  padding: 4.5px 5px 4.5px 5px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease;
+}
+
+.language-abc {
+  font-family: var(--default-font);
+  color: white;
+  font-size: 2vh;
+  padding: 7px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease;
+}
+
+.language-zh-tw:hover, .language-abc:hover {
+  box-sizing: border-box;
+  background-color: var(--language-hover-bg); /* Highlight color on hover */
+  color: var(--language-hover-text);
+}

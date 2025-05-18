@@ -1,0 +1,79 @@
+<!--
+/********************************************
+* Copyright (c) 2025 Shun/翔海 (@shun4midx) *
+* Project: School Project of Training Game *
+* File Type: HTML file for training game   *
+* File: /game/index.html                   *
+********************************************/
+-->
+
+<!DOCTYPE html>
+<html lang="utf-8">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>清福員工訓練遊戲</title>
+  <link rel="stylesheet" href="../main-template.css"/> <!-- Includes the language customization in the corner, probably would include login functionality later too -->
+  <link rel="stylesheet" href="game-template.css"/>
+</head>
+
+<body>
+  <div class="GameBodyWrap">
+    <div class="HeaderButtons">
+      <a href=".." class="HomeButton">🏠</a>
+      <div class="MenuToggle" onclick="toggleMenu()">
+        <span id="globe-text">🌐</span>
+      </div>
+    </div>
+
+    <!-- Language selection container -->
+    <div class="LanguageContainer">
+      <div class="language-zh-tw" onclick="setLanguage('zh-tw')">正體中文</div>
+      <div class="language-abc" onclick="setLanguage('en')">English</div>
+      <div class="language-abc" onclick="setLanguage('vn')">Tiếng Việt</div>
+      <div class="language-abc" onclick="setLanguage('id')">Bahasa Indonesia</div>
+    </div>
+
+    <div class="GameBody">
+      <!-- Game Content (Image + Answers) -->
+      <div class="GameContent">
+        <!-- Display the question image -->
+        <div class="GameImage">
+          <img src="" style="visibility: hidden;" width="300"/>
+        </div>
+
+        <!-- Display question -->
+        <div class="Question">
+          <h1 question-key="questionText"></h1>
+        </div>
+
+        <!-- Answers Section -->
+        <div class="Answers">
+          <div id="feedback" class="FeedbackMessage"></div>
+
+          <div class="AnswerOption" style="visibility: hidden" onclick="checkAnswer('A')" question-key="answerA"></div>
+          <div class="AnswerOption" style="visibility: hidden;" onclick="checkAnswer('B')" question-key="answerB"></div>
+          <div class="AnswerOption" style="visibility: hidden;" onclick="checkAnswer('C')" question-key="answerC"></div>
+          <div class="AnswerOption" style="visibility: hidden;" onclick="checkAnswer('D')" question-key="answerD"></div>
+
+          <!-- Continue Button (initially hidden) -->
+          <button id="continue-button" class="ContinueButton" style="display: none;" onclick="nextQuestion()" data-key="nextQuestion">下一題</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======== SCRIPTS ======== -->
+  <!-- Main Background Scripts -->
+  <script src="../main-scripts/read-write-sheet.js"></script>
+  <script src="../main-scripts/language-selection.js"></script>
+  <script src="main-scripts/disable-hover.js"></script>
+  <script type="module" src="../main-scripts/naive-translation.js"></script>
+
+  <!-- Game Scripts -->
+  <script type="module" src="question-navigation.js"></script>
+  <script type="module" src="validate-answer.js"></script>
+  <script type="module" src="display-question.js"></script>
+</body>
+
+</html>
